@@ -4,25 +4,20 @@
  */
 var sortColors = function(nums) {
     let start = 0;
-    let next = 1;
     let end = nums.length - 1;
-    let color = 0;
-    while (color < 3) {
-        if (next > end) {
-            //continue from previous start position and loop for new color
-            next = start+1;
-            color++;
-        }
-        if (nums[start] == color) {
+    let iteration = 0;
+    while (iteration<=end) {
+        if (nums[iteration] == 0) {
+            nums[iteration] = nums[start];
+            nums[start] = 0;
             start++;
-            next++;
-        } else if (nums[start] != nums[next] && nums[next] == color) {
-            nums[next] = nums[start]
-            nums[start] = color;
-            start++;
+            iteration++;
+        } else if (nums[iteration] == 2) {
+            nums[iteration] = nums[end];
+            nums[end] = 2;
+            end--;
         } else {
-            next++;
+            iteration++;
         }
     }
-    return nums;
 };
