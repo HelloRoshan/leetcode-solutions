@@ -7,8 +7,8 @@ var flipAndInvertImage = function(image) {
     let end = image.length - 1;
     let row = 0;
     while (start <= end && row < image.length) {
-        let temp = !!image[row][start] ? 0 : 1;
-        image[row][start] = !!image[row][end] ? 0 : 1;
+        let temp = image[row][start] ? 0 : 1;
+        image[row][start] = image[row][end] ? 0 : 1;
         image[row][end] = temp;
         start++;
         end--;
