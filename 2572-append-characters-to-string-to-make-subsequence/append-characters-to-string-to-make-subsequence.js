@@ -7,12 +7,11 @@ var appendCharacters = function(s, t) {
   let start = 0;
   let end = s.length - 1;
   let moving = 0;
-  while (start <= end) {
+  let movingend = t.length - 1;
+  while (start <= end && moving <= movingend) {
     if (s[start] == t[moving]) {
         moving++;
         start++;
-    } else if (s[start] != t[moving] && start == end) {
-        break;
     } else {
         start++;
     }
